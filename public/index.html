@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>Welcome To Bitly App</h1>
+    <div class="container">
+        <h1>URL Shortener</h1>
+        <input type="text" id="longLink" placeholder="Enter Long Link">
+        <button onclick="saveLink()">Save</button>
+
+        <div id="shortLinkContainer">
+            <p>Your short link:</p>
+            <a id="shortLink" href="" target="_blank"></a>
+        </div>
+    </div>
+    <script>
+        async function saveLink() {
+            const longLink = document.getElementById('longLink').value;
+            try {
+                const response = await fetch('/add', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ longLink })
+                });
+                const data = await response.json();
+                // Display the short link returned by the server
+                const fullShortLink = window.location.origin + '/' + data.message;
+                document.getElementById('shortLink').textContent =fullShortLink;
+                document.getElementById('shortLink').href = fullShortLink;
+                document.getElementById('shortLinkContainer').style.display = 'block';
+            } catch (error) {
+                console.error('Error saving link:', error);
+                alert('An error occurred while saving the link');
+            }
+        }
+    </script>
+</body>
+</html>
