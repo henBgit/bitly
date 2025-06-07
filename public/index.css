@@ -1,66 +1,119 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #e3f2fd, #ffffff);
     margin: 0;
     padding: 0;
+    animation: fadeInBody 1.2s ease-in;
 }
 
-.container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-top: 12rem;
+@keyframes fadeInBody {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 h1 {
     text-align: center;
-    color: #007bff; /* Change color to blue */
-    margin-bottom: 20px; /* Add some margin at the bottom for spacing */
+    color: #ff6600;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.container {
+    max-width: 600px;
+    margin: 8rem auto;
+    padding: 30px 25px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    animation: fadeInUp 1.3s ease-out;
 }
 
 input[type="text"] {
-    width: calc(100% - 80px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    width: 80%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #ff6600;
+    outline: none;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #007bff;
+    padding: 12px 25px;
+    background: #ff6600;
     border: none;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 16px;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background: #ff6600;
 }
 
 #shortLinkContainer {
-    margin-top: 20px;
+    margin-top: 30px;
     display: none;
+    animation: fadeIn 0.8s ease-in;
 }
 
 #shortLinkContainer p {
     font-size: 18px;
     margin-bottom: 10px;
+    color: #212529;
 }
 
 #shortLink {
-    color: #007bff;
+    color: #ff6600;
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
 #shortLink:hover {
     text-decoration: underline;
+    color: #ff6600;
 }
 
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.section-title {
+    text-align: left;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  .section-title h2 {
+    color: #ff6600; 
+    font-size: 2rem;
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    border-bottom: 3px solid #ff6600;
+    position: relative;
+  }
+  
+
+  
